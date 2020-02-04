@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppFacadeService } from 'src/app/services/facade/app-facade.service';
+import { CashflowCategory } from 'src/models/CashflowCategory';
 
 @Component({
     selector: 'app-container1',
@@ -9,10 +11,19 @@ export class Container1Component implements OnInit {
 
     isImageVisible: boolean;
 
-    constructor() { }
+    constructor(private appFacade: AppFacadeService) { }
 
     ngOnInit() {
         this.isImageVisible = true;
+    }
+
+    visibilityChange($event){
+        this.isImageVisible = $event;
+    }
+
+    saveEventListener($event){
+        this.appFacade.addCashflowCategory({id: 1, name: "John"});
+        console.log($event);
     }
 
 }
