@@ -9,6 +9,7 @@ import { Dumb11Component } from './components/dumb11/dumb11.component';
 import { Dumb12Component } from './components/dumb12/dumb12.component';
 import { Dumb13Component } from './components/dumb13/dumb13.component';
 import { ImageHolderComponent } from './components/image-holder/image-holder.component';
+import {FormsModule} from '@angular/forms';  
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ImageHolderComponent } from './components/image-holder/image-holder.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

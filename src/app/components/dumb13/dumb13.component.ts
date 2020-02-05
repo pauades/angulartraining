@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Person } from 'src/models/Person';
 
 @Component({
     selector: 'app-dumb13',
@@ -7,15 +8,25 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class Dumb13Component implements OnInit {
 
-    @Output() save: EventEmitter<object> = new EventEmitter<object>();
+    @Output() save: EventEmitter<Person> = new EventEmitter<Person>();
+    @Output() update: EventEmitter<Person> = new EventEmitter<Person>();
+
+
+    personToAdd: Person = new Person();
+    personToEdit: Person = new Person();
 
     constructor() { }
 
     ngOnInit() {
+        
     }
 
     btnSaveClick() {
-        this.save.emit({name: "John", surname:"Doe", role:"Admin"})
+        this.save.emit(this.personToEdit)
+    }
+
+    btnUpdateClick(){
+        this.update.emit(this.personToEdit);
     }
 
 }

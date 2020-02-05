@@ -3,5 +3,5 @@
     <app-image-holder [isImageVisible]="isImageVisible"></app-image-holder>
     <app-dumb11 (show)="visibilityChange($event)"></app-dumb11>
     <app-dumb12 (hide)="visibilityChange($event)"></app-dumb12>
-    <app-dumb13 (save)="saveEventListener($event)"></app-dumb13>
+    <app-dumb13 (save)="saveEventListener($event)" (update)="updateEventListener($event)"></app-dumb13>
 </div>

@@ -1,42 +1,42 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CashflowCategory } from 'src/models/CashflowCategory';
+import { Person } from 'src/models/Person';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AppApiService {
 
-    readonly API = '/api/cashflowCategories';
+    readonly API = '/api/persons';
 
     //constructor(private http: HttpClient) {}
 
-    // getCashflowCategories(): Observable<CashflowCategory[]> {
-    //   return this.http.get<CashflowCategory[]>(this.API);
+    // getPersons(): Observable<Person[]> {
+    //   return this.http.get<Person[]>(this.API);
     // }
 
-    // createCashflowCategory(category: CashflowCategory): Observable<any> {
-    //   return this.http.post(this.API, category);
+    // createPerson(person: Person): Observable<any> {
+    //   return this.http.post(this.API, person);
     // }
 
-    // updateCashflowCategory(category: CashflowCategory): Observable<any> {
-    //   return this.http.put(`${this.API}/${category.id}`, category);
+    // updatePerson(person: Person): Observable<any> {
+    //   return this.http.put(`${this.API}/${person.id}`, person);
     // }
 
 
-    getCashflowCategories(): Observable<CashflowCategory[]> {
+    getPersons(): Observable<Person[]> {
 
-        console.log("CashFlowCategories requested with success");
-        return new Observable<CashflowCategory[]>();
+        console.log("Persons requested with success");
+        return new Observable<Person[]>();
     }
 
-    createCashflowCategory(category: CashflowCategory): Observable<any> {
-        console.log("CashFlowCategories created with success");
+    createPerson(person: Person): Observable<any> {
+        console.log("Persons created with success");
         return new Observable<any>();
     }
 
-    updateCashflowCategory(category: CashflowCategory): Observable<any> {
-        console.log("CashFlowCategories updated with success");
+    updatePerson(person: Person): Observable<any> {
+        console.log("Persons updated with success");
         return new Observable<any>();
     }
 }

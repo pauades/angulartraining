@@ -1,52 +1,53 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { CashflowCategory } from 'src/models/CashflowCategory';
+import { Person } from 'src/models/Person';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AppStateStoreService {
 
     private updating$ = new BehaviorSubject<boolean>(false);
-    private cashflowCategories$ = new BehaviorSubject<CashflowCategory[]>(null);
-  
+    private persons$ = new BehaviorSubject<Person[]>([{ id: 1, name: "Jane Doe" }, { id: 2, name: "John Doe" }, { id: 3, name: "Allan Poe" }]);
+
     isUpdating$() {
-      return this.updating$.asObservable();
+        return this.updating$.asObservable();
     }
-  
+
     setUpdating(isUpdating: boolean) {
-      this.updating$.next(isUpdating);
+        this.updating$.next(isUpdating);
     }
-  
-    getCashflowCategories$() {
-      return this.cashflowCategories$.asObservable();
+
+    getPersons$() {
+        return this.persons$.asObservable();
     }
-  
-    setCashflowCategories(categories: CashflowCategory[]) {
-      this.cashflowCategories$.next(categories);
+
+    setPersons(persons: Person[]) {
+        this.persons$.next(persons);
     }
-  
-    addCashflowCategory(category: CashflowCategory) {
-      const currentValue = this.cashflowCategories$.getValue();
-      this.cashflowCategories$.next([...currentValue, category]);
+
+    addPerson(person: Person) {
+        const currentValue = this.persons$.getValue();
+        this.persons$.next([...currentValue, person]);
     }
-  
-    updateCashflowCategory(updatedCategory: CashflowCategory) {
-      const categories = this.cashflowCategories$.getValue();
-      const indexOfUpdated = categories.findIndex(category => category.id === updatedCategory.id);
-      categories[indexOfUpdated] = updatedCategory;
-      this.cashflowCategories$.next([...categories]);
+
+    updatePerson(updatedPerson: Person) {
+        debugger;
+        const persons = this.persons$.getValue();
+        const indexOfUpdated = persons.findIndex(person => person.id == updatedPerson.id);
+        persons[indexOfUpdated] = updatedPerson;
+        this.persons$.next([...persons]);
     }
-  
-    updateCashflowCategoryId(categoryToReplace: CashflowCategory, addedCategoryWithId: CashflowCategory) {
-      const categories = this.cashflowCategories$.getValue();
-      const updatedCategoryIndex = categories.findIndex(category => category === categoryToReplace);
-      categories[updatedCategoryIndex] = addedCategoryWithId;
-      this.cashflowCategories$.next([...categories]);
+
+    updatePersonId(personToReplace: Person, addedPersonWithId: Person) {
+        const persons = this.persons$.getValue();
+        const updatedPersonIndex = persons.findIndex(person => person == personToReplace);
+        persons[updatedPersonIndex] = addedPersonWithId;
+        this.persons$.next([...persons]);
     }
-  
-    removeCashflowCategory(categoryRemove: CashflowCategory) {
-      const currentValue = this.cashflowCategories$.getValue();
-      this.cashflowCategories$.next(currentValue.filter(category => category !== categoryRemove));
+
+    removePerson(personRemove: Person) {
+        const currentValue = this.persons$.getValue();
+        this.persons$.next(currentValue.filter(person => person != personRemove));
     }
 }

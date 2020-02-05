@@ -1,4 +1,18 @@
 <div id="dumb13">
-    <h3>Dumb1-3</h3>
-    <button (click)="btnSaveClick()">Save</button>
+
+    <div>
+        <h3>Dumb1-3</h3>
+        <button (click)="btnSaveClick()">Add</button>
+        <!--[(ngModel)] binding is in Forms Module, import it-->
+        <input placeholder="id" [(ngModel)]="personToAdd.id" />
+        <input placeholder="name" [(ngModel)]="personToAdd.name" />
+    </div>
+
+    <div>
+        <button (click)="btnUpdateClick()">Update</button>
+        <!--[(ngModel)] binding is in Forms Module, import it-->
+        <input placeholder="id" [(ngModel)]="personToEdit.id" />
+        <input placeholder="name" [(ngModel)]="personToEdit.name" />
+    </div>
+
 </div>

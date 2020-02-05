@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Person } from 'src/models/Person';
 
 @Component({
     selector: 'app-dumb1',
@@ -9,7 +10,8 @@ export class Dumb1Component implements OnInit {
 
     @Input() isImageVisible: boolean;
     @Output() visibilityEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
-    @Output() save: EventEmitter<object> = new EventEmitter<object>();
+    @Output() save: EventEmitter<Person> = new EventEmitter<Person>();
+    @Output() update: EventEmitter<Person> = new EventEmitter<Person>();
 
     constructor() { }
 
@@ -23,5 +25,9 @@ export class Dumb1Component implements OnInit {
 
     saveEventListener($event){
         this.save.emit($event);
+    }
+
+    updateEventListener($event){
+        this.update.emit($event);
     }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppFacadeService } from 'src/app/services/facade/app-facade.service';
-import { CashflowCategory } from 'src/models/CashflowCategory';
+import { Person } from 'src/models/Person';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
     selector: 'app-container1',
@@ -8,22 +9,29 @@ import { CashflowCategory } from 'src/models/CashflowCategory';
     styleUrls: ['./container1.component.scss']
 })
 export class Container1Component implements OnInit {
-
     isImageVisible: boolean;
+    persons: Person[];
 
     constructor(private appFacade: AppFacadeService) { }
 
     ngOnInit() {
         this.isImageVisible = true;
-    }
+        this.persons=[];
+        this.appFacade.getPersons$().subscribe(items => {
+            this.persons = items;
+            console.log(items);
+        });
+    }   
 
-    visibilityChange($event){
+    visibilityChange($event) {
         this.isImageVisible = $event;
     }
 
-    saveEventListener($event){
-        this.appFacade.addCashflowCategory({id: 1, name: "John"});
-        console.log($event);
+    saveEventListener($event) {
+        this.appFacade.addPerson($event);
     }
 
+    updateEventListener($event) {        
+        this.appFacade.updatePerson($event);
+    }
 }

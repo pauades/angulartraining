@@ -1,4 +1,4 @@
-export class CashflowCategory {
+export class Person {
     id: number;
     name: string;
 }
