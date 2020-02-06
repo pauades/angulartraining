@@ -4,7 +4,8 @@ import { Container1Component } from './components/container1/container1.componen
 
 
 const routes: Routes = [
-    { path: 'container1', component: Container1Component }
+    { path: 'container1', component: Container1Component },
+    { path: 'things-list', loadChildren: () => import('./things/things.module').then(m => m.ThingsModule) }
 ];
 
 @NgModule({
