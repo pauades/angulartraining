@@ -50,7 +50,6 @@ export class AppFacadeService {
   // 1. call API
   // 2. update UI state
   updatePerson(person: Person) {
-    this.applicationState.updatePerson(person)
     this.applicationState.setUpdating(true);
     this.applicationAPI.updatePerson(person)
       .subscribe(

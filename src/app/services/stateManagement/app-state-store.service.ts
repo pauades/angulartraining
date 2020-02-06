@@ -32,7 +32,6 @@ export class AppStateStoreService {
     }
 
     updatePerson(updatedPerson: Person) {
-        debugger;
         const persons = this.persons$.getValue();
         const indexOfUpdated = persons.findIndex(person => person.id == updatedPerson.id);
         persons[indexOfUpdated] = updatedPerson;
