@@ -9,6 +9,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
     styleUrls: ['./container1.component.scss']
 })
 export class Container1Component implements OnInit {
+
     isImageVisible: boolean;
     persons: Person[];
 

@@ -16,13 +16,15 @@ export class AppApiService {
     }
     
     createPerson(person: Person): Observable < any > {        
-        const mockApiObservable = of(person);
-        //const mockApiObservable = concat(throwError(new Error('oops! API Call failed')));
+        //const mockApiObservable = of(person);
+        debugger;
+        const mockApiObservable = concat(throwError(new Error('oops! API Call failed')));
         return mockApiObservable;
     }
     
     updatePerson(person: Person): Observable < any > {        
         const mockApiObservable = of(person);
+        debugger;
         //const mockApiObservable = concat(throwError(new Error('oops! API Call failed')));
         return mockApiObservable;        
     }

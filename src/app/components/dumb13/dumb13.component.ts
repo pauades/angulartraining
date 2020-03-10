@@ -22,7 +22,7 @@ export class Dumb13Component implements OnInit {
     }
 
     btnSaveClick() {
-        this.save.emit(this.personToEdit)
+        this.save.emit(this.personToAdd);
     }
 
     btnUpdateClick(){

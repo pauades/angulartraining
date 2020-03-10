@@ -8,7 +8,9 @@
     <h1>Container 1</h1>    
     <label>Is Image visible?</label>
     <input type="checkbox" [checked]="isImageVisible" (change)="isImageVisible = !isImageVisible">
-    <app-dumb1 (visibilityEvent)="visibilityChange($event)" (save)="saveEventListener($event)" (update)="updateEventListener($event)"
+    <app-dumb1  (visibilityEvent)="visibilityChange($event)" 
+                (save)="saveEventListener($event)" 
+                (update)="updateEventListener($event)"
         [isImageVisible]="isImageVisible"></app-dumb1>
 
 </div>
